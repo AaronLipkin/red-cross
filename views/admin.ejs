@@ -17,8 +17,8 @@
 			<td class="carName">{{car.name}}</td>
 			<td class="carlicense">{{car.license}}</td>
 			<td class="carbarcode">{{car.barcode}}</td>
-			<td class="carLat">{{car.lat}}</td>
-			<td class="carLng">{{car.lng}}</td>
+			<td class="carLat">{{car.lat | number:5}}</td>
+			<td class="carLng">{{car.lng  | number:5}}</td>
 			<td class="time">{{car.time | date: 'medium'}}</td>
 		</tr>
 	</table>
@@ -26,9 +26,11 @@
 	<h2>Doesn't Have Car</h2>
 		<table class="table">
 		<th>Name</th>
+		<th>Timestamp</th>
 
 		<tr ng-repeat="car in ctrl.cars | filter: {hasCar: false}">
-			<td>{{car.name}}</td>
+			<td class="noCarName">{{car.name}}</td>
+			<td class="noCarTime">{{car.time | date: 'medium'}}</td>
 		</tr>
 	</table>
 	</div>
