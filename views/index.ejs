@@ -1,0 +1,33 @@
+
+<%- include partials/header.ejs %>
+<title>Rental Car Form</title>
+</head>
+<body ng-controller="FormController as ctrl">
+	<%- include partials/nav.ejs %>
+	<div class="container">
+		<form ng-submit="ctrl.submitForm()" class="form-group">
+			<label><h2>Name:</h1></label>
+				<input class="form-control"  type="text" ng-model="ctrl.formData.name"><br>
+
+				<div class="form-check">
+					<label class="form-check-label">
+						<input type="checkbox" class="form-check-input" ng-model="ctrl.formData.hasCar"> 
+						<h2>I Have a Rental Car</h2>
+					</label>
+				</div>
+
+				<div ng-show="ctrl.formData.hasCar">
+					<label><h2>Plate Number:</h2></label>
+					<input class="form-control"  type="text" ng-model="ctrl.formData.license"><br>
+					<label><h2>Barcode Number:</h2></label>
+					<input  class="form-control" type="text" ng-model="ctrl.formData.barcode">
+					<br>
+					<button type=submit class="btn btn-danger" ng-show="data.lat">Submit</button>
+					<button type=submit class="btn btn-danger" ng-show="!(data.lat)" disabled>Locating</button>
+				</div>
+				<button class="btn btn-danger" type=submit ng-show="!(ctrl.formData.hasCar)">Submit</button>
+
+			</form>
+		</div>
+	</body>
+	</html>

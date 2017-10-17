@@ -1,0 +1,23 @@
+
+
+
+<%- include ../partials/header.ejs %>
+<title>Rental Car Form</title>
+</head>
+<body ng-controller="FormController as ctrl">
+	<%- include ../partials/nav.ejs %>
+	<div class="container">
+		<form  action="/sessions/login" method="POST">
+			<input class="form-control" type="text" name="username" value="">
+			<input class="form-control" type="password" name="password" value="">
+			<button>Login</button>
+		</form>
+	</div>
+
+	<% if (message) { %>
+
+	<%= message %>
+
+	<% } %>
+</body>
+</html>

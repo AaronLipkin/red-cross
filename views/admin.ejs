@@ -1,0 +1,34 @@
+	<%- include partials/header.ejs %>
+	<title>Admin Panel</title>
+</head>
+<body ng-controller="CarsController as ctrl">
+<%- include partials/nav.ejs %>
+<div class="container">
+	<h2>Has Car</h2>
+	<table class="table">
+		<th>Name</th>
+		<th>License Plate</th>
+		<th>Barcode</th>
+		<th>Latitude</th>
+		<th>Longitude</th>
+
+		<tr ng-repeat="car in ctrl.cars | filter: {hasCar: true}">
+			<td class="carName">{{car.name}}</td>
+			<td class="carlicense">{{car.license}}</td>
+			<td class="carbarcode">{{car.barcode}}</td>
+			<td class="carLat">{{car.lat}}</td>
+			<td class="carLng">{{car.lng}}</td>
+		</tr>
+	</table>
+<hr>
+	<h2>Doesn't Have Car</h2>
+		<table class="table">
+		<th>Name</th>
+
+		<tr ng-repeat="car in ctrl.cars | filter: {hasCar: false}">
+			<td>{{car.name}}</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>
