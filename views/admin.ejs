@@ -11,6 +11,7 @@
 		<th>Barcode</th>
 		<th>Latitude</th>
 		<th>Longitude</th>
+		<th>Timestamp</th>
 
 		<tr ng-repeat="car in ctrl.cars | filter: {hasCar: true}">
 			<td class="carName">{{car.name}}</td>
@@ -18,6 +19,7 @@
 			<td class="carbarcode">{{car.barcode}}</td>
 			<td class="carLat">{{car.lat}}</td>
 			<td class="carLng">{{car.lng}}</td>
+			<td class="time">{{car.time | date: 'medium'}}</td>
 		</tr>
 	</table>
 <hr>

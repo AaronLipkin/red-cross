@@ -7,7 +7,7 @@ const carSchema = mongoose.Schema({
 	barcode: 	{ type: String },
 	lat: 		{ type: Number },
 	lng: 		{ type: Number },
-	time: 		{ type: Number, default: Date.now()/1000}
+	time: 		{ type: Number, default: Date.now()}
 });
 
 const Car = mongoose.model('Car', carSchema);

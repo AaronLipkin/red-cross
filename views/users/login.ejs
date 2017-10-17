@@ -7,10 +7,11 @@
 <body ng-controller="FormController as ctrl">
 	<%- include ../partials/nav.ejs %>
 	<div class="container">
+		<h1>Login</h1><br>
 		<form  action="/sessions/login" method="POST">
-			<input class="form-control" type="text" name="username" value="">
-			<input class="form-control" type="password" name="password" value="">
-			<button>Login</button>
+			<input class="form-control" type="text" name="username" placeholder="Username"><br>
+			<input class="form-control" type="password" name="password" placeholder="Password"><br>
+			<button type="submit" class="btn btn-danger">Login</button>
 		</form>
 	</div>
 

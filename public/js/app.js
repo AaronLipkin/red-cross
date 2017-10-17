@@ -3,6 +3,8 @@ var app = angular.module('RedCross', []);
 app.controller('FormController', ['$scope', '$http', function($scope, $http){
 	$scope.data = {};
 
+
+	this.locate = () => {
 	const onPositionUpdate = (position) => {
 		$scope.$apply(() => {
 			$scope.data.lat = position.coords.latitude;
@@ -10,17 +12,10 @@ app.controller('FormController', ['$scope', '$http', function($scope, $http){
 		})
 	}
 
-	locate = setInterval(() => {
-		if (!($scope.data.lat)) {
-			if (navigator.geolocation) navigator.geolocation.getCurrentPosition(onPositionUpdate);
-			console.log($scope.data.lat,$scope.data.lng)
-		}
-		else {
+	if (navigator.geolocation) navigator.geolocation.getCurrentPosition(onPositionUpdate);
 			console.log($scope.data.lat,$scope.data.lng)
 
-			clearInterval(locate)
-		}
-	}, 1000)
+ }
 
 	this.formData = {}
 	this.formData.hasCar= false
